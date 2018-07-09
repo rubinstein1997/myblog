@@ -290,6 +290,7 @@ public class IndexController extends BaseController {
     @GetMapping(value = "links")
     public String links(HttpServletRequest request) {
         List<MetaVo> links = metaService.getMetas(Types.LINK.getType());
+        LOGGER.info("数据库操作返回值: {}",links);
         request.setAttribute("links", links);
         return this.render("links");
     }
